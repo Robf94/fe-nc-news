@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function ArticlesCard(props) {
-  const { cardImg, subtitle, commentCount, created, cardTitle, topic, votes } = props;
+  const { cardImg, subtitle, commentCount, created, cardTitle, topic } = props;
 
   console.log(props);
 

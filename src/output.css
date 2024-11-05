@@ -3853,9 +3853,13 @@ details.collapse summary::-webkit-details-marker {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-h1 {
-  color: blueviolet;
+#nav-heading {
+  color: #eb1c24;
 }
+
+/* .nav {
+  background-color: #eb1c24;
+} */
 
 @media (hover:hover) {
   .table .\*\:hover > *tr:hover,

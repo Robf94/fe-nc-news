@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <nav className="navbar bg-base-100">
+      <nav className="navbar bg-base-100 nav">
         <div className="flex-1">
-          <Link className="btn btn-ghost text-xl" to="/">
+          <Link className="btn btn-ghost text-xl" id="nav-heading" to="/">
             NC News
           </Link>
         </div>

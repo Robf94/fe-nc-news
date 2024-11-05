@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
-h1 {
-  color: blueviolet;
+#nav-heading {
+  color: #eb1c24;
 }
+
+/* .nav {
+  background-color: #eb1c24;
+} */
