@@ -1,5 +1,5 @@
 function Button() {
- return <button>Test</button>
+ return <button className="rounded-full">Test</button>
 }
 
 export default Button
