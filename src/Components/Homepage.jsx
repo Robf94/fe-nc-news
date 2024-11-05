@@ -3,7 +3,7 @@ import BreakingNews from "./BreakingNews"
 
 function Homepage() {
   return (
-    <main>
+    <main className="prose">
       <h1>Welcome to NC News</h1>
       <h2>For only the most current of affairs!</h2>
       <BreakingNews />
