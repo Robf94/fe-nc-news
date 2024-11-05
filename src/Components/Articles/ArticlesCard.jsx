@@ -12,6 +12,7 @@ function ArticlesCard(props) {
           <h2 className="card-title">
             {cardTitle}
             <div className="badge badge-secondary">NEW</div>
+            {/* later: only show new if article is less and a day old */}
           </h2>
           <p>{subtitle}</p>
           <div className="card-actions justify-end">
