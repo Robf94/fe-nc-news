@@ -8,7 +8,7 @@ function ArticlesCard(props) {
   return (
     // <Link>
 
-    <article className="card bg-base-100 shadow-xl mx-10 my-10">
+    <article className="card bg-base-100 shadow-xl mx-10 my-10 card-bg">
       <figure>
         <img src={cardImg} alt="" />
       </figure>
