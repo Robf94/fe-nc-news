@@ -5,7 +5,7 @@ export default {
     extend: {},
   },
   daisyui: {
-    themes: ["pastel"]
+    themes: ["pastel", "dark"]
   },
   plugins: [
     require("daisyui"),

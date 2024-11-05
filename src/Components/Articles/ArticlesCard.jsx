@@ -4,7 +4,7 @@ function ArticlesCard(props) {
   const { articleId, cardImg, subtitle, cardTitle, topic } = props;
   return (
     <Link to={`/articles/${articleId}`}>
-      <article className="card bg-base-100 shadow-xl mx-10 my-10 card-bg">
+      <article className="card bg-base-100 shadow-xl my-10 card-bg">
         <figure>
           <img src={cardImg} alt="" />
         </figure>

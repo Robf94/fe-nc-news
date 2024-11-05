@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import dateFormat from "dateformat";
 import { fetchArticleById } from "../../api";
 import Loader from "../Loader";
+import Comments from "./Comments";
 
 function SingleArticle() {
   const [article, setArticle] = useState({});
@@ -20,7 +21,6 @@ function SingleArticle() {
 
     fetchArticleById(article_id)
       .then((articleData) => {
-        console.log(articleData);
         setArticle(articleData);
         setTimeout(() => setIsLoading(false), 500);
       })
@@ -40,15 +40,21 @@ function SingleArticle() {
 
   return (
     <div className="article-container prose">
-      <h1>{article.title}</h1>
+      <h1 className="mx-2">{article.title}</h1>
       <img src={article.article_img_url} alt="" />
-      <p>{formatDate}</p>
-      <p>{article.body}</p>
-      <p>
-        {article.votes} {checkSingleVote}
-      </p>
-      <button class="btn btn-primary">Like</button>
-      <button class="btn btn-secondary">Comments</button>
+      <div className="text-container mx-2">
+        <p>{formatDate}</p>
+        <p>{article.body}</p>
+        <p>
+          {article.votes} {checkSingleVote}
+        </p>
+      </div>
+      <div className="btn-container mx-2">
+        <button className="btn btn-primary">Like</button>
+        <button className="btn btn-secondary">Comment</button>
+      </div>
+
+      <Comments />
     </div>
   );
 }
