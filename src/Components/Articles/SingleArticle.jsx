@@ -4,9 +4,11 @@ import dateFormat from "dateformat";
 import { fetchArticleById } from "../../api";
 import Loader from "../Loader";
 import Comments from "./Comments";
+import LikeButton from "../LikeButton";
 
 function SingleArticle() {
   const [article, setArticle] = useState({});
+  const [newVote, setNewVote] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const { article_id } = useParams();
@@ -46,11 +48,12 @@ function SingleArticle() {
         <p>{formatDate}</p>
         <p>{article.body}</p>
         <p>
-          {article.votes} {checkSingleVote}
+          {article.votes + newVote} {checkSingleVote}
         </p>
       </div>
       <div className="btn-container mx-2">
-        <button className="btn btn-primary">Like</button>
+        <LikeButton articleId={article.article_id} setNewVote={setNewVote} />
+        {/* <button className="btn btn-primary">Like</button> */}
         <button className="btn btn-secondary">Comment</button>
       </div>
 

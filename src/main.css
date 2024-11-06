@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 #nav-heading {
   color: #eb1c24;
 }
 
-/* .nav {
-  background-color: #eb1c24;
-} */
+.card {
+  position: static;
+}

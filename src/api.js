@@ -22,4 +22,15 @@ function fetchCommentsByArticleId(article_id) {
   });
 }
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId };
+function updateArticleLikes(article_id) {
+  return api
+    .patch(`/articles/${article_id}`, {
+      inc_votes: 1,
+    })
+    .then(({ data }) => {
+      console.log(data.article);
+      return data.article;
+    });
+}
+
+export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleLikes };
