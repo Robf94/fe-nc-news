@@ -52,7 +52,7 @@ function SingleArticle() {
         </p>
       </div>
       <div className="btn-container mx-2">
-        <LikeButton articleId={article.article_id} setNewVote={setNewVote} />
+        <LikeButton articleId={article.article_id} setNewVote={setNewVote} currentVotes={article.votes} />
         {/* <button className="btn btn-primary">Like</button> */}
         <button className="btn btn-secondary">Comment</button>
       </div>

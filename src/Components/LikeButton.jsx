@@ -1,27 +1,42 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { updateArticleLikes } from "../api";
-import { useParams } from "react-router-dom";
 
-function LikeButton({ setNewVote }) {
+function Likebutton({ articleId, currentVotes, setNewVote }) {
   const [isLiked, setIsLiked] = useState(false);
-
-  const { article_id } = useParams();
+  const [isError, setIsError] = useState(false);
 
   const handleLike = () => {
+    setIsError(false);
     if (isLiked) {
-      updateArticleLikes(article_id);
-      setNewVote((currentNewVote) => {
-        return currentNewVote - 1;
-      });
+      setNewVote((currentNewVote) => currentNewVote - 1);
       setIsLiked(false);
+      updateArticleLikes(articleId, -1)
+        .then(() => {
+          console.log(`Like removed (${currentVotes})`);
+        })
+        .catch((err) => {
+          setIsError(true);
+          console.log(err, "Error: like not removed");
+        });
     } else {
-      updateArticleLikes(article_id);
-      setNewVote((currentNewVote) => {
-        return currentNewVote + 1;
-      });
+      setNewVote((currentNewVote) => currentNewVote + 1);
       setIsLiked(true);
+      updateArticleLikes(articleId, 1)
+        .then(() => {
+          console.log(`Like added (${currentVotes + 1})`);
+        })
+        .catch((err) => {
+          setIsError(true);
+          console.log(err, "Error: like not added");
+        });
     }
   };
+
+  if (isError) {
+    return <h2>Something went wrong!</h2>;
+  }
+
+  // Advanced - remember whether current used has liked post, so they cannot like it multiple times after refreshing article
 
   return (
     <div>
@@ -32,4 +47,4 @@ function LikeButton({ setNewVote }) {
   );
 }
 
-export default LikeButton;
+export default Likebutton;
