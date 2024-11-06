@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import dateFormat from "dateformat";
 import { fetchCommentsByArticleId } from "../../api";
+import LikeButton from "../LikeButton";
 
 function Comments() {
   const [comments, setComments] = useState([]);
@@ -9,7 +10,6 @@ function Comments() {
 
   useEffect(() => {
     fetchCommentsByArticleId(article_id).then((commentsData) => {
-      console.log(commentsData);
       setComments(commentsData);
     });
   }, []);
@@ -21,6 +21,7 @@ function Comments() {
           <h3 className="card-title m-0">{comment.author}</h3>
           <h4>{dateFormat(comment.created_at, "dddd, dd mmmm yyyy 'at' H:MM")}</h4>
           <p className="m-0">{comment.body}</p>
+          <LikeButton />
         </div>
       </div>
     );
