@@ -28,4 +28,8 @@ function updateArticleVotes(article_id, inc_votes) {
   });
 }
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes };
+function postComment(article_id, commentData) {
+  return api.post(`/articles/${article_id}/comments`, commentData).then((response) => response.body);
+}
+
+export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes, postComment };
