@@ -22,10 +22,10 @@ function fetchCommentsByArticleId(article_id) {
   });
 }
 
-function updateArticleLikes(article_id, inc_votes) {
+function updateArticleVotes(article_id, inc_votes) {
   return api.patch(`/articles/${article_id}`, {
     inc_votes: inc_votes,
   });
 }
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleLikes };
+export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes };

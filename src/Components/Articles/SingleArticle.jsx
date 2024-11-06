@@ -4,7 +4,7 @@ import dateFormat from "dateformat";
 import { fetchArticleById } from "../../api";
 import Loader from "../Loader";
 import Comments from "./Comments";
-import LikeButton from "../LikeButton";
+import VoteButton from "../VoteButton";
 
 function SingleArticle() {
   const [article, setArticle] = useState({});
@@ -15,7 +15,7 @@ function SingleArticle() {
 
   const formatDate = dateFormat(article.created_at, "dddd, dd mmmm yyyy 'at' H:MM");
 
-  const checkSingleVote = article.votes === 1 ? "like" : "likes";
+  const checkSingleVote = article.votes === 1 ? "vote" : "votes";
 
   useEffect(() => {
     setIsLoading(true);
@@ -52,8 +52,7 @@ function SingleArticle() {
         </p>
       </div>
       <div className="btn-container mx-2">
-        <LikeButton articleId={article.article_id} setNewVote={setNewVote} currentVotes={article.votes} />
-        {/* <button className="btn btn-primary">Like</button> */}
+        <VoteButton articleId={article.article_id} setNewVote={setNewVote} currentVotes={article.votes} />
         <button className="btn btn-secondary">Comment</button>
       </div>
 
