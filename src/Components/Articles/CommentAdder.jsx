@@ -10,11 +10,11 @@ function CommentAdder({ article_id, setComments }) {
     <form
       className="comment-adder"
       onSubmit={(event) => {
+        setIsError(false);
         event.preventDefault();
         setIsPosting(true);
         postComment(article_id, userComment)
           .then((comment) => {
-            setIsError(false);
             setIsPosting(false);
             setComments((prevComments) => [comment, ...prevComments]);
           })
@@ -30,7 +30,7 @@ function CommentAdder({ article_id, setComments }) {
           className={isError ? "input input-bordered input-error w-full" : "input input-primary w-full"}
           id="new-comment"
           value={userComment}
-          placeholder={isError ? "Comment cannot be empty!" : "Enter a comment"}
+          placeholder={isError ? "Comment cannot be empty!" : "Add a comment"}
           onChange={(event) => {
             setUserComment(event.target.value);
           }}
