@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { postComment } from "../../api";
 
-function CommentAdder({ article_id, addComment }) {
+function CommentAdder({ article_id, setComments }) {
   const [userComment, setUserComment] = useState("");
   const [isPosting, setIsPosting] = useState(false);
   const [isError, setIsError] = useState(false);
-
+  // Could alter this further with context - one to sort further down the line (see screenshots)
   return (
     <form
       className="comment-adder"
@@ -14,8 +14,9 @@ function CommentAdder({ article_id, addComment }) {
         setIsPosting(true);
         postComment(article_id, userComment)
           .then((comment) => {
+            setIsError(false);
             setIsPosting(false);
-            addComment(comment);
+            setComments((prevComments) => [comment, ...prevComments]);
           })
           .catch((err) => {
             setIsPosting(false);
@@ -23,17 +24,18 @@ function CommentAdder({ article_id, addComment }) {
           });
         setUserComment("");
       }}>
-      <label htmlFor="new-comment">Add a comment</label>
       <div className="comment-input-button">
         <input
           type="text"
+          className={isError ? "input input-bordered input-error w-full" : "input input-primary w-full"}
           id="new-comment"
           value={userComment}
+          placeholder={isError ? "Comment cannot be empty!" : "Enter a comment"}
           onChange={(event) => {
             setUserComment(event.target.value);
           }}
         />
-        <button>Post comment</button>
+        <button className="btn btn-primary">Post comment</button>
       </div>
     </form>
   );

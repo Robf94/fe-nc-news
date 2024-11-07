@@ -53,7 +53,6 @@ function SingleArticle() {
       </div>
       <div className="btn-container mx-2">
         <VoteButton articleId={article.article_id} setNewVote={setNewVote} currentVotes={article.votes} />
-        <button className="btn btn-secondary">Comment</button>
       </div>
 
       <Comments />
