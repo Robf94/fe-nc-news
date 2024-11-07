@@ -28,10 +28,10 @@ function updateArticleVotes(article_id, inc_votes) {
   });
 }
 
-function postComment(article_id, commentData) {
+function postComment(article_id, commentData, author) {
   return api
     .post(`/articles/${article_id}/comments`, {
-      author: "grumpy19",
+      author: author,
       body: commentData,
     })
     .then(({ data }) => {
@@ -39,8 +39,8 @@ function postComment(article_id, commentData) {
     });
 }
 
-function deleteComment(article_id, commentData) {
-  
+function deleteComment(comment_id) {
+  return api.delete(`/comments/${comment_id}`);
 }
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes, postComment };
+export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes, postComment, deleteComment };
