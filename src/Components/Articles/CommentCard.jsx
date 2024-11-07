@@ -1,5 +1,4 @@
 import dateFormat from "dateformat";
-import { defer } from "react-router-dom";
 
 function CommentCard({ author, created_at, body }) {
   return (

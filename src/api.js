@@ -28,4 +28,19 @@ function updateArticleVotes(article_id, inc_votes) {
   });
 }
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes };
+function postComment(article_id, commentData) {
+  return api
+    .post(`/articles/${article_id}/comments`, {
+      author: "grumpy19",
+      body: commentData,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+}
+
+function deleteComment(article_id, commentData) {
+  
+}
+
+export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes, postComment };
