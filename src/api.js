@@ -43,4 +43,17 @@ function deleteComment(comment_id) {
   return api.delete(`/comments/${comment_id}`);
 }
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes, postComment, deleteComment };
+function fetchTopics() {
+  return api.get(`topics`).then(({ data }) => {
+    return data.topics;
+  });
+}
+
+function filterArticles(topic) {
+  return api.get(`/articles?topic=${topic}`).then(({ data }) => {
+    console.log(data.articles, "api");
+    return data.articles;
+  });
+}
+
+export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes, postComment, deleteComment, fetchTopics, filterArticles };

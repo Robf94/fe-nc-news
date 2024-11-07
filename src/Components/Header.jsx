@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { filterArticles } from "../api";
 
 function Header() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
+
   return (
     <header className="m-2 sticky top-2">
       <nav className="navbar bg-base-300 rounded-full nav">
@@ -11,21 +16,21 @@ function Header() {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
-            {/* <li>
-              <Link to="/topics">Topics</Link>
-            </li> */}
             <li>
               <details>
                 <summary>Topics</summary>
                 <ul className="bg-base-100 rounded-t-none p-2">
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to={"/articles"}>All</Link>
                   </li>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/articles?topic=football">Football</Link>
                   </li>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/articles?topic=cooking">Cooking</Link>
+                  </li>
+                  <li>
+                    <Link to="/articles?topic=coding">Coding</Link>
                   </li>
                 </ul>
               </details>
