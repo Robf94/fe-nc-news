@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { postComment } from "../../api";
+import { grumpy19 } from "../../context/loggedInUser";
 
 function CommentAdder({ article_id, setComments }) {
   const [userComment, setUserComment] = useState("");
   const [isPosting, setIsPosting] = useState(false);
   const [isError, setIsError] = useState(false);
   // Could alter this further with context - one to sort further down the line (see screenshots)
+
+  const loggedInUser = useContext(grumpy19)
+
   return (
     <form
       className="comment-adder"
@@ -13,7 +17,7 @@ function CommentAdder({ article_id, setComments }) {
         setIsError(false);
         event.preventDefault();
         setIsPosting(true);
-        postComment(article_id, userComment)
+        postComment(article_id, userComment, loggedInUser.username)
           .then((comment) => {
             setIsPosting(false);
             setComments((prevComments) => [comment, ...prevComments]);

@@ -39,7 +39,7 @@ function Comments() {
     <main className="m-2">
       <CommentAdder article_id={article_id} setComments={setComments} />
       {comments.map((comment) => (
-        <CommentCard key={comment.comment_id} author={comment.author} created_at={comment.created_at} body={comment.body} />
+        <CommentCard key={comment.comment_id} comment={comment} setComments={setComments} />
       ))}
     </main>
   );
