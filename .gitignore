@@ -25,3 +25,6 @@ dist-ssr
 
 # Tailwind output
 src/output.css
+
+# Local Netlify folder
+.netlify
