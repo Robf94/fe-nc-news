@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Tailwind output
-/src/output.css/
+src/output.css
