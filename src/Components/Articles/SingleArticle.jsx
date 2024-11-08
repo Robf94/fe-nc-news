@@ -47,12 +47,12 @@ function SingleArticle() {
       <div className="text-container mx-2">
         <p>{formatDate}</p>
         <p>{article.body}</p>
-        <p>
-          {article.votes + newVote} {checkSingleVote}
-        </p>
       </div>
-      <div className="btn-container mx-2">
+      <div className="btn-vote-container flex items-center mx-2 my-5">
         <VoteButton articleId={article.article_id} setNewVote={setNewVote} currentVotes={article.votes} />
+        <h3 className="w-1/3 m-0 text-center">
+          {article.votes + newVote} {checkSingleVote}
+        </h3>
       </div>
 
       <Comments />

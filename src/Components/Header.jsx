@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 
 function Header() {
+  // const [theme, setTheme] = useState()
+
   return (
     <header className="m-2 sticky top-2">
-      <nav className="navbar bg-base-300 rounded-full nav">
+      <nav className="navbar bg-base-300 shadow-md rounded-full nav">
         <div className="flex-1">
           <Link className="btn btn-ghost text-xl" id="nav-heading" to="/">
             NC News
@@ -11,21 +13,21 @@ function Header() {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
-            {/* <li>
-              <Link to="/topics">Topics</Link>
-            </li> */}
             <li>
               <details>
                 <summary>Topics</summary>
                 <ul className="bg-base-100 rounded-t-none p-2">
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to={"/articles"}>All</Link>
                   </li>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/topics/football">Football</Link>
                   </li>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/topics/cooking">Cooking</Link>
+                  </li>
+                  <li>
+                    <Link to="/topics/coding">Coding</Link>
                   </li>
                 </ul>
               </details>
@@ -34,7 +36,7 @@ function Header() {
 
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
-            <input type="checkbox" className="theme-controller" value="forest" />
+            <input type="checkbox" className="theme-controller" value="pastel" />
 
             {/* sun icon */}
             <svg className="swap-off h-7 w-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

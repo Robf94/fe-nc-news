@@ -19,10 +19,10 @@ function Homepage() {
     <main className="prose mx-2">
       <h1>Welcome to NC News</h1>
       <h2>For only the most current of affairs!</h2>
-      {/* <BreakingNews /> */}
       <h1>Breaking news:</h1>
       <ArticlesCard />
       <Link to="/articles">Click here to view all articles</Link>
+
     </main>
   );
 }

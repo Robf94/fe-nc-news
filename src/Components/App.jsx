@@ -15,6 +15,7 @@ function App() {
         <Route path="/articles" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route path="/articles/:article_id/comments" element={<SingleArticle />} />
+        <Route path="/topics/:topic" element=<ArticleList /> />
       </Routes>
     </>
   );

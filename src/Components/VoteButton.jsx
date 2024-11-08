@@ -39,8 +39,8 @@ function Votebutton({ articleId, currentVotes, setNewVote }) {
   // Advanced - remember whether current used has voted post, so they cannot vote it multiple times after refreshing article
 
   return (
-    <div>
-      <button className="btn btn-primary" onClick={handleVote}>
+    <div className="w-1/3">
+      <button className="btn btn-primary w-full" onClick={handleVote}>
         {isVoted ? "Unvote" : "Vote"}
       </button>
     </div>
