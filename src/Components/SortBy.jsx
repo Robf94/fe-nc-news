@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function SortBy(props) {
-  const [orderBy, setOrderBy] = useState([]);
-  const [sort, setSort] = useState([]);
   const { sortQuery, setSortQuery, orderQuery, setOrderQuery, setSearchParams } = props;
 
   useEffect(() => {
@@ -12,13 +10,14 @@ function SortBy(props) {
 
     setSearchParams(params);
   }, [orderQuery, sortQuery]);
+
   return (
     <>
       <select className="select w-1/2" onChange={(event) => setSortQuery(event.target.value)}>
-        <option disabed selected>
+        <option disabled default selected>
           Sort by:
         </option>
-        <option value={"created_at"} key={"date"}>
+        <option value={"date_created"} key={"date"}>
           Date
         </option>
         <option value={"title"} key={"title"}>
@@ -33,12 +32,17 @@ function SortBy(props) {
       </select>
 
       <select className="select w-1/2" onChange={(event) => setOrderQuery(event.target.value)}>
-        <option disabled selected>
+        <option disabled default selected>
           Order:
         </option>
         <option value={"DESC"}>Descending</option>
         <option value={"ASC"}>Ascending</option>
       </select>
+
+      <h2>
+        { sortQuery || orderQuery ? `Sorted by ${sortQuery}, ${orderQuery}` : ""}
+        {/* Sorted by {sortQuery}, {orderQuery} */}
+      </h2>
     </>
   );
 }

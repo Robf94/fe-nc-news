@@ -5,6 +5,7 @@ import { fetchArticleById } from "../../api";
 import Loader from "../Loader";
 import Comments from "./Comments";
 import VoteButton from "../VoteButton";
+import ErrorPage from "../ErrorPage";
 
 function SingleArticle() {
   const [article, setArticle] = useState({});
@@ -28,12 +29,11 @@ function SingleArticle() {
       })
       .catch((err) => {
         setIsError(true);
-        console.log(err);
       });
   }, []);
 
   if (isError) {
-    return <h2>Something went wrong!</h2>;
+    return <ErrorPage />;
   }
 
   if (isLoading) {
