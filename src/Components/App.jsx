@@ -4,6 +4,7 @@ import Homepage from "./Homepage";
 import TopicsList from "./TopicsList";
 import ArticleList from "./Articles/ArticleList";
 import SingleArticle from "./Articles/SingleArticle";
+import ErrorPage from "./ErrorPage";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/articles" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route path="/articles/:article_id/comments" element={<SingleArticle />} />
-        <Route path="/topics/:topic" element=<ArticleList /> />
+        <Route path="/topics/:topic" element={<ArticleList />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
   );
