@@ -30,7 +30,7 @@ function SingleArticle() {
         setIsError(true);
         console.log(err);
       });
-  }, [article_id]);
+  }, []);
 
   if (isError) {
     return <h2>Something went wrong!</h2>;

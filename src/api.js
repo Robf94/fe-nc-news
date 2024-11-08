@@ -4,11 +4,14 @@ const api = axios.create({
   baseURL: "https://be-nc-news-rf-1.onrender.com/api",
 });
 
-function fetchArticles(topic) {
+function fetchArticles(topic, sort_by, order) {
+  console.log(`Topic: ${topic}`, `sort: ${sort_by}`, `order: ${order}`);
   return api
     .get("/articles", {
       params: {
         topic,
+        sort_by,
+        order,
       },
     })
     .then(({ data }) => {

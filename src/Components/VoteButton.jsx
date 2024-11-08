@@ -12,7 +12,7 @@ function Votebutton({ articleId, currentVotes, setNewVote }) {
       setIsVoted(false);
       updateArticleVotes(articleId, -1)
         .then(() => {
-          console.log(`Vote removed (${currentVotes})`);
+          alert(`Vote removed`);
         })
         .catch((err) => {
           setIsError(true);
