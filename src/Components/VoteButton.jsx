@@ -40,7 +40,7 @@ function Votebutton({ articleId, currentVotes, setNewVote }) {
 
   return (
     <div className="w-1/3">
-      <button className="btn btn-primary w-full" onClick={handleVote}>
+      <button className="btn btn-accent rounded-full w-full" onClick={handleVote}>
         {isVoted ? "Unvote" : "Vote"}
       </button>
     </div>

@@ -7,7 +7,7 @@ function Header() {
     <header className="m-2 sticky top-2">
       <nav className="navbar bg-base-300 shadow-md rounded-full nav">
         <div className="flex-1">
-          <Link className="btn btn-ghost text-xl" id="nav-heading" to="/">
+          <Link className="btn btn-ghost rounded-full text-xl" id="nav-heading" to="/">
             NC News
           </Link>
         </div>
@@ -15,8 +15,8 @@ function Header() {
           <ul className="menu menu-horizontal px-1">
             <li>
               <details>
-                <summary>Topics</summary>
-                <ul className="bg-base-100 rounded-t-none p-2">
+                <summary className="rounded-full">Topics</summary>
+                <ul className="bg-base-100 p-2">
                   <li>
                     <Link to={"/articles"}>All</Link>
                   </li>
@@ -36,7 +36,7 @@ function Header() {
 
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
-            <input type="checkbox" className="theme-controller" value="forest" />
+            <input type="checkbox" className="theme-controller" value="dark" />
 
             {/* sun icon */}
             <svg className="swap-off h-7 w-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
