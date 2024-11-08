@@ -28,10 +28,10 @@ function CommentAdder({ article_id, setComments }) {
           });
         setUserComment("");
       }}>
-      <div className="comment-input-button">
-        <input
+      <div className="comment-input-button h-full mb-5">
+        <textarea
           type="text"
-          className={isError ? "input input-bordered input-error w-full" : "input input-primary w-full"}
+          className={isError ? "textarea textarea-bordered textarea-error w-full" : "textarea textarea-primary w-full"}
           id="new-comment"
           value={userComment}
           placeholder={isError ? "Comment cannot be empty!" : "Add a comment"}
@@ -39,7 +39,7 @@ function CommentAdder({ article_id, setComments }) {
             setUserComment(event.target.value);
           }}
         />
-        <button className="btn btn-primary">Post comment</button>
+        <button className="btn btn-primary w-full">Post comment</button>
       </div>
     </form>
   );

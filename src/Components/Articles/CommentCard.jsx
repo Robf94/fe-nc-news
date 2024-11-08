@@ -23,10 +23,10 @@ function CommentCard({ comment, setComments }) {
   };
 
   return (
-    <div className="card bg-primary my-3">
+    <div className="card bg-gray-200 shadow-lg my-3">
       <div className="card-body">
         <h3 className="card-title m-0">{author}</h3>
-        <h4>{dateFormat(created_at, "dddd, dd mmmm yyyy 'at' H:MM")}</h4>
+        <h4>{dateFormat(created_at, "dddd, dd mmmm yyyy 'at' HH:MM")}</h4>
         <p className="m-0">{body}</p>
         {/* <DeleteButton /> */}
         {author === loggedInUser.username ? (
