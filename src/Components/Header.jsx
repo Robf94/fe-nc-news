@@ -18,7 +18,8 @@ function Header() {
                 <summary className="rounded-full">Topics</summary>
                 <ul className="bg-base-100 p-2">
                   <li>
-                    <Link to={"/articles"}>All</Link>
+                    {/* <Link to={"/articles"}>All</Link> */}
+                    <Link to={"/"}>All</Link>
                   </li>
                   <li>
                     <Link to="/topics/football">Football</Link>

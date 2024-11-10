@@ -13,7 +13,7 @@ function SortBy(props) {
 
   return (
     <>
-      <select className="select w-1/2" onChange={(event) => setSortQuery(event.target.value)}>
+      <select className="select w-1/2" value={sortQuery} onChange={(event) => setSortQuery(event.target.value)}>
         <option disabled default selected>
           Sort by:
         </option>
@@ -40,7 +40,7 @@ function SortBy(props) {
       </select>
 
       <h2>
-        { sortQuery || orderQuery ? `Sorted by ${sortQuery}, ${orderQuery}` : ""}
+        {sortQuery || orderQuery ? `Sorted by ${sortQuery}, ${orderQuery}` : ""}
         {/* Sorted by {sortQuery}, {orderQuery} */}
       </h2>
     </>
