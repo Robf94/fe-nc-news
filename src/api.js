@@ -51,4 +51,11 @@ function deleteComment(comment_id) {
   return api.delete(`/comments/${comment_id}`);
 }
 
-export { fetchArticles, fetchArticleById, fetchCommentsByArticleId, updateArticleVotes, postComment, deleteComment };
+export {
+  fetchArticles,
+  fetchArticleById,
+  fetchCommentsByArticleId,
+  updateArticleVotes,
+  postComment,
+  deleteComment,
+};

@@ -24,9 +24,6 @@ function Comments() {
       });
   }, [article_id]);
 
-  // Advanced - if current user logged in, then said user can delete their own comments
-  // Advanced - add infinite scroll for comments
-
   if (isLoading) {
     return <Loader />;
   }
@@ -36,10 +33,17 @@ function Comments() {
   }
 
   return (
-    <main className="mx-2 my-10">
-      <CommentAdder article_id={article_id} setComments={setComments} />
+    <main className="mx-2 my-6">
+      <CommentAdder
+        article_id={article_id}
+        setComments={setComments}
+      />
       {comments.map((comment) => (
-        <CommentCard key={comment.comment_id} comment={comment} setComments={setComments} />
+        <CommentCard
+          key={comment.comment_id}
+          comment={comment}
+          setComments={setComments}
+        />
       ))}
     </main>
   );

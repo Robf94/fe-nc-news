@@ -41,12 +41,30 @@ function ArticleList() {
   }
 
   return (
-    <main className="mx-2">
-      <h1>All {topic} articles</h1>
-      <SortBy sortQuery={sortQuery} setSortQuery={setSortQuery} orderQuery={orderQuery} setOrderQuery={setOrderQuery} setSearchParams={setSearchParams} />
-      {articles.map((article) => (
-        <ArticlesCard key={article.article_id} articleId={article.article_id} cardImg={article.article_img_url} subtitle={article.author} commentCount={article.comment_count} created={article.created_at} cardTitle={article.title} topic={article.topic} votes={article.votes} />
-      ))}
+    <main className="mx-2 md:mx-8 lg:mx-32">
+      <h1 className="text-center text-xl font-bold">All {topic} articles</h1>
+      <SortBy
+        sortQuery={sortQuery}
+        setSortQuery={setSortQuery}
+        orderQuery={orderQuery}
+        setOrderQuery={setOrderQuery}
+        setSearchParams={setSearchParams}
+      />
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+        {articles.map((article) => (
+          <ArticlesCard
+            key={article.article_id}
+            articleId={article.article_id}
+            cardImg={article.article_img_url}
+            subtitle={article.author}
+            commentCount={article.comment_count}
+            created={article.created_at}
+            cardTitle={article.title}
+            topic={article.topic}
+            votes={article.votes}
+          />
+        ))}
+      </div>
     </main>
   );
 }
